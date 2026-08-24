@@ -1,17 +1,32 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        String rutaArchivo = "resultado_test.txt";
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // Escribir un archivo
+        try (FileWriter writer = new FileWriter(rutaArchivo)) {
+            writer.write("Test ejecutado: edadValidaNoTiraExcepcion -> PASSED\n");
+            writer.write("Test ejecutado: edadInvalidaTiraExcepcion -> PASSED\n");
+        } catch (IOException e) {
+            System.out.println("Error al escribir el archivo: " + e.getMessage());
         }
+
+        // Leer el mismo archivo
+        try {
+            String contenido = Files.readString(Path.of(rutaArchivo));
+            System.out.println("Contenido del archivo:");
+            System.out.println(contenido);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+
+        String resumenJson = "{\"testsPasados\": 2, \"testsFallidos\": 0, \"estado\": \"OK\"}";
+        System.out.println("Resumen en formato JSON: " + resumenJson);
     }
 }
