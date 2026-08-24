@@ -1,0 +1,2 @@
+Test ejecutado: edadValidaNoTiraExcepcion -> PASSED
+Test ejecutado: edadInvalidaTiraExcepcion -> PASSED
