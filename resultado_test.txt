@@ -1,2 +1,3 @@
 Test ejecutado: edadValidaNoTiraExcepcion -> PASSED
 Test ejecutado: edadInvalidaTiraExcepcion -> PASSED
+Reporte generado automáticamente

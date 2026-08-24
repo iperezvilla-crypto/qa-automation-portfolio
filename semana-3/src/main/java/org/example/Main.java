@@ -13,6 +13,7 @@ public class Main {
         try (FileWriter writer = new FileWriter(rutaArchivo)) {
             writer.write("Test ejecutado: edadValidaNoTiraExcepcion -> PASSED\n");
             writer.write("Test ejecutado: edadInvalidaTiraExcepcion -> PASSED\n");
+            writer.write("Reporte generado automáticamente\n");
         } catch (IOException e) {
             System.out.println("Error al escribir el archivo: " + e.getMessage());
         }
